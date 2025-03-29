@@ -234,20 +234,26 @@ export default function App() {
             &copy; {new Date().getFullYear()} FLO Event Decor. Todos os direitos reservados.
           </p>
           <div className="flex gap-4">
-            <a
-              href="https://instagram.com/flo_eventdecor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground hover:text-primary"
-            >
-              <Instagram className="h-5 w-5" />
-              <span className="sr-only">Instagram</span>
-            </a>
-            <a href="mailto:info@floeventdecor.com" className="text-muted-foreground hover:text-primary">
-              <Mail className="h-5 w-5" />
-              <span className="sr-only">Email</span>
-            </a>
-          </div>
+  <a
+    href="https://instagram.com/flo_eventdecor"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-muted-foreground hover:text-primary"
+  >
+    <Instagram className="h-5 w-5" />
+    <span className="sr-only">Instagram</span>
+  </a>
+  <a 
+    href="https://www.tiktok.com/@flo_eventdecor" 
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-muted-foreground hover:text-primary"
+  >
+    <FaTiktok className="h-5 w-5" />
+    <span className="sr-only">@flo_eventdecor</span>
+  </a>
+</div>
+
         </div>
       </footer>
     </div>
