@@ -67,7 +67,7 @@ export default function App() {
     {/* About Section */}
 <section id="about" className="py-20">
   <div className="container px-4">
-    <h2 className="text-center font-serif text-4xl font-bold md:text-5xl">A nossa Equipa</h2>
+    <h2 className="text-center font-serif text-4xl font-bold md:text-5xl">Sobre Nós</h2>
     <div className="mt-16 grid gap-10 md:grid-cols-2">
       <div className="group relative overflow-hidden rounded-xl bg-muted p-6 transition-all hover:shadow-lg">
         <div className="flex flex-col items-center text-center">
