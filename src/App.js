@@ -4,6 +4,8 @@ import { Button } from "./components/ui/button";
 import 'swiper/css';
 import 'swiper/css/effect-fade';
 import Galeria from "./galeria";
+import { FaTiktok } from 'react-icons/fa';
+
 
 export default function App() {
   return (
@@ -24,7 +26,7 @@ export default function App() {
             <a href="#mission" className="text-base font-medium hover:text-primary">
               Missão
             </a>
-            <a href="#events" className="text-base font-medium hover:text-primary">
+            <a href="#galeria" className="text-base font-medium hover:text-primary">
               Galeria
             </a>
             <a href="#contact" className="text-base font-medium hover:text-primary">
@@ -47,7 +49,7 @@ export default function App() {
             muted 
             className="absolute h-full w-full object-cover"
           >
-            <source src="/videos/video2.mp4" type="video/mp4" />
+            <source src="/videos/fundoSite.mp4" type="video/mp4" />
           </video>
 
           {/* Logo por cima do vídeo */}
@@ -86,8 +88,8 @@ export default function App() {
           </div>
           <h3 className="font-serif text-3xl font-bold">MARTA</h3>
           <p className="mt-4 text-lg text-muted-foreground font-body">
-            Desde cedo tem uma ligação forte com flores na estufa onde cresceu e atualmente trabalha. Junta o
-            seu gosto pelas flores e a atenção aos detalhes para te proporcionar eventos maravilhosos.
+          Cresceu na Quinta das Flores, um lugar especial com estufas de diversas flores e onde também trabalha. 
+          A sua experiência e atenção aos detalhes permitem proporcionar eventos maravilhosos.
           </p>
         </div>
       </div>
@@ -161,9 +163,9 @@ export default function App() {
 <section id="contact" className="py-20">
   <div className="container px-4">
     <div className="mx-auto max-w-3xl text-center">
-      <h2 className="font-serif text-4xl font-bold md:text-5xl">Fale Conosco</h2>
+      <h2 className="font-serif text-4xl font-bold md:text-5xl">Fale Connosco</h2>
       <p className="mt-6 text-xl text-muted-foreground font-body">
-        Entre em contato para tornar seu evento verdadeiramente especial.
+        Entre em contacto para tornar seu evento verdadeiramente especial.
       </p>
 
       <div className="mt-12 flex flex-col items-center justify-center gap-4">
@@ -183,7 +185,7 @@ export default function App() {
         <div className="flex flex-col md:flex-row items-center gap-6 text-xl text-muted-foreground hover:text-primary transition">
           <a href="mailto:marta.flores@email.com" className="flex items-center gap-2">
             <Mail className="h-5 w-5" />
-            marta.flores@email.com
+            martasilvag@gmail.com
           </a>
           <a href="tel:+351917810527" className="flex items-center gap-2">
             <Phone className="h-5 w-5" />
@@ -201,12 +203,18 @@ export default function App() {
           <Instagram className="h-5 w-5" />
           @flo_eventdecor
         </a>
-      </div>
+        {/* TikTok */}
+<a
+  href="https://www.tiktok.com/@flo_eventdecor"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="flex items-center gap-2 text-xl hover:text-primary mt-4"
+>
+<FaTiktok className="h-5 w-5" />
 
-      <div className="mt-12">
-        <Button size="lg" className="rounded-full bg-primary hover:bg-primary/90 text-white">
-          Solicitar Orçamento
-        </Button>
+  @flo_eventdecor
+</a>
+
       </div>
     </div>
   </div>

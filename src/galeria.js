@@ -6,7 +6,7 @@ export default function Galeria() {
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
 
-  const folders = ["Safari", "Matias", "Casamento", "Martim", "Gatsby"];
+  const folders = ["Safari", "Matias", "Casamento", "Martim", "Gatsby","Xica","Maria"];
 
   useEffect(() => {
     const el = scrollRef.current;
