@@ -67,7 +67,6 @@ export default function Galeria() {
             <div className="flex w-max">
               {folders.map(({ slug, label }, pageIndex) => (
                 <div key={slug} className="snap-start shrink-0 w-screen px-4 md:px-6">
-                  <p className="mb-4 font-serif text-xl md:text-2xl text-primary-dark">{label}</p>
                   <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
                     {[...Array(9)].map((_, i) => {
                       const isFirstPage = pageIndex === 0;
