@@ -1,12 +1,20 @@
 import React, { useRef, useState, useEffect } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+const folders = [
+  { slug: "Safari", label: "Festa Safari" },
+  { slug: "Matias", label: "Batizado Matias" },
+  { slug: "Casamento", label: "Casamento" },
+  { slug: "Martim", label: "Festa Martim" },
+  { slug: "Gatsby", label: "Festa Gatsby" },
+  { slug: "Xica", label: "Festa Xica" },
+  { slug: "Maria", label: "Festa Maria" },
+];
+
 export default function Galeria() {
   const scrollRef = useRef(null);
   const [showLeftArrow, setShowLeftArrow] = useState(false);
   const [showRightArrow, setShowRightArrow] = useState(true);
-
-  const folders = ["Safari", "Matias", "Casamento", "Martim", "Gatsby","Xica","Maria"];
 
   useEffect(() => {
     const el = scrollRef.current;
@@ -19,7 +27,7 @@ export default function Galeria() {
     };
 
     handleScroll();
-    el.addEventListener("scroll", handleScroll);
+    el.addEventListener("scroll", handleScroll, { passive: true });
     return () => el.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -31,6 +39,8 @@ export default function Galeria() {
         <div className="relative">
           {showLeftArrow && (
             <button
+              type="button"
+              aria-label="Ver evento anterior"
               onClick={() =>
                 scrollRef.current?.scrollBy({ left: -window.innerWidth, behavior: "smooth" })
               }
@@ -42,6 +52,8 @@ export default function Galeria() {
 
           {showRightArrow && (
             <button
+              type="button"
+              aria-label="Ver evento seguinte"
               onClick={() =>
                 scrollRef.current?.scrollBy({ left: window.innerWidth, behavior: "smooth" })
               }
@@ -53,23 +65,31 @@ export default function Galeria() {
 
           <div ref={scrollRef} className="overflow-x-auto snap-x snap-mandatory scroll-smooth">
             <div className="flex w-max">
-              {folders.map((folder, pageIndex) => (
-                <div key={pageIndex} className="snap-start shrink-0 w-screen px-6">
-                  <div className="grid grid-cols-3 grid-rows-3 gap-2">
-                    {[...Array(9)].map((_, i) => (
-                      <div key={i} className="overflow-hidden rounded-xl">
-                        <img
-                          loading="lazy"
-                          src={`/images/${folder}/${folder.toLowerCase()}${i + 1}.jpg`}
-                          alt={`${folder} ${i + 1}`}
-                          className="w-full h-80 md:h-[375px] object-cover opacity-0 transition-all duration-700 ease-in-out hover:scale-105 hover:brightness-110 hover:shadow-xl"
-                          onLoad={(e) => {
-                            e.currentTarget.classList.remove('opacity-0');
-                            e.currentTarget.parentElement.classList.remove('bg-muted', 'animate-pulse');
-                          }}
-                        />
-                      </div>
-                    ))}
+              {folders.map(({ slug, label }, pageIndex) => (
+                <div key={slug} className="snap-start shrink-0 w-screen px-4 md:px-6">
+                  <p className="mb-4 font-serif text-xl md:text-2xl text-primary-dark">{label}</p>
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                    {[...Array(9)].map((_, i) => {
+                      const isFirstPage = pageIndex === 0;
+                      const src = `/images/${slug}/${slug.toLowerCase()}${i + 1}.jpg`;
+                      return (
+                        <div
+                          key={i}
+                          className="overflow-hidden rounded-xl bg-muted aspect-[4/5]"
+                        >
+                          <img
+                            src={src}
+                            alt={`${label} — fotografia ${i + 1}`}
+                            width="800"
+                            height="1000"
+                            loading={isFirstPage ? "eager" : "lazy"}
+                            decoding="async"
+                            fetchpriority={isFirstPage && i < 3 ? "high" : "auto"}
+                            className="w-full h-full object-cover transition-transform duration-500 ease-out hover:scale-105"
+                          />
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               ))}
